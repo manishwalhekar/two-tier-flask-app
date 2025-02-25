@@ -1,0 +1,1 @@
+File used to check if jenkins master and agents are running. As I was able to build a pipeline without any error but docker images and docker container was not building.
