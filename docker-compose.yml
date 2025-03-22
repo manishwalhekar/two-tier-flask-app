@@ -21,8 +21,8 @@ services:
       timeout: 5s
 
   flaskapp:
-    image: flaskapp  # ✅ Use the prebuilt image in jenkins instead of rebuilding
-    container_name: flaskapp-v3
+    image: flaskapp-v3  # ✅ Use the prebuilt image in jenkins instead of rebuilding
+    container_name: flaskapp
     environment:
       MYSQL_USER: manish
       MYSQL_PASSWORD: admin
