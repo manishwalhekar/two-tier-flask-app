@@ -1,4 +1,4 @@
-services:
+3services:
   mysql:
     image: mysql:latest
     container_name: mysql
@@ -22,7 +22,7 @@ services:
 
   flaskapp:
     image: flaskapp  # ✅ Use the prebuilt image in jenkins instead of rebuilding
-    container_name: flaskapp
+    container_name: flaskapp-v3
     environment:
       MYSQL_USER: manish
       MYSQL_PASSWORD: admin
