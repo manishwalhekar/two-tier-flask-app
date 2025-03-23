@@ -15,12 +15,12 @@ pipeline{
              sh "docker build -t flaskapp ."
             }
         }
-        stage ("Test"){
+       /* stage ("Test"){
              steps{
                 echo "Code Tested"
             }
             
-        }
+        }*/
         stage ("Push to Docker hub"){
              steps{
                 withCredentials([usernamePassword(
