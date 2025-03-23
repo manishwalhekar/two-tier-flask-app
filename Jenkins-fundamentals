@@ -1,0 +1,55 @@
+pipeline{
+    
+    agent any;
+    
+    stages{
+        stage ("Code clone"){
+            steps{
+                git url : "https://github.com/manishwalhekar/two-tier-flask-app.git",  branch: "training"
+            
+            }
+        }
+        stage ("Build"){
+             steps{
+             sh "docker image prune -f"
+             sh "docker build -t flaskapp ."
+            }
+        }
+        stage ("Test"){
+             steps{
+                echo "Code Tested"
+            }
+            
+        }
+        stage ("Push to Docker hub"){
+             steps{
+                withCredentials([usernamePassword(
+                    credentialsId:"dockerHubCreds",
+                    passwordVariable:"dockerHubPass",
+                    usernameVariable:"dockerHubUser"
+                )]){
+                    
+                sh 'echo "$dockerHubPass" | docker login -u "$dockerHubUser" --password-stdin'
+                sh "docker image tag flaskapp $dockerHubUser/flaskapp"
+                sh "docker push $dockerHubUser/flaskapp:latest"
+                    
+                }
+            }
+            
+        }
+        
+        stage ("Deploy"){
+             steps{
+                sh "docker compose up -d"
+               
+             }
+        }    
+        stage ("Cleaning unused images"){
+             steps{
+                sh "docker image prune -f"
+               
+            } 
+            
+        }
+    }
+}
