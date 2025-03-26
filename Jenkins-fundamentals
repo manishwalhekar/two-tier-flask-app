@@ -52,4 +52,36 @@ pipeline{
             
         }
     }
+
+post{
+    success{
+        emailext(
+            subject: "Jenkins Build Success - ${JOB_NAME} #${BUILD_NUMBER}",
+                body: """
+                    <h3>Build Succeeded</h3>
+                    <p>Job: ${JOB_NAME} #${BUILD_NUMBER}</p>
+                    <p>Status: SUCCESS ✅</p>
+                    <p>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                """,
+                to: 'manish.walhekar02@gmail.com',
+                from: 'jenkins@example.com',
+                mimeType: 'text/html'
+            )
+    }
+    failure{
+        emailext(
+            subject: "Jenkins Build Failed - ${JOB_NAME} #${BUILD_NUMBER}",
+                body: """
+                    <h3>Build Failed</h3>
+                    <p>Job: ${JOB_NAME} #${BUILD_NUMBER}</p>
+                    <p>Status: FAILED ❌</p>
+                    <p>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                """,
+                to: 'manish.walhekar02@gmail.com',
+                from: 'jenkins@example.com',
+                mimeType: 'text/html'
+            )
+    }
+}    
+    
 }
