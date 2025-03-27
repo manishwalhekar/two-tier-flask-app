@@ -2,6 +2,10 @@ pipeline{
     
     agent {label "dev"};
     
+    environment {
+        TEST_VERSION = "v1"
+    }
+    
     stages{
         stage ("Code clone"){
             steps{
@@ -55,7 +59,7 @@ pipeline{
 post{
     success{
         emailext(
-            subject: "Jenkins Build Success - ${JOB_NAME} #${BUILD_NUMBER}",
+            subject: "${TEST_VERSION}-Jenkins Build Success - ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
                     <h3>Build Succeeded</h3>
                     <h3>Job: ${JOB_NAME} #${BUILD_NUMBER}</h3>
