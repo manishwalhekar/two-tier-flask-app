@@ -64,7 +64,7 @@ post{
                     <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
                 to: 'manish.walhekar02@gmail.com',
-                from: 'jenkins@example.com',
+                from: 'manish.walhekar02@gmail.com',
                 mimeType: 'text/html'
             )
     }
@@ -78,7 +78,7 @@ post{
                     <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
                 to: 'manish.walhekar02@gmail.com',
-                from: 'jenkins@example.com',
+                from: 'manish.walhekar02@gmail.com',
                 mimeType: 'text/html'
             )
     }
