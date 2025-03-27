@@ -59,9 +59,9 @@ post{
             subject: "Jenkins Build Success - ${JOB_NAME} #${BUILD_NUMBER}",
                 body: """
                     <h3>Build Succeeded</h3>
-                    <p>Job: ${JOB_NAME} #${BUILD_NUMBER}</p>
-                    <p>Status: SUCCESS ✅</p>
-                    <p>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></p>
+                    <h3>Job: ${JOB_NAME} #${BUILD_NUMBER}</h3>
+                    <h3>Status: SUCCESS ✅</h3>
+                    <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
                 to: 'manish.walhekar02@gmail.com',
                 from: 'jenkins@example.com',
