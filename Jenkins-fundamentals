@@ -62,7 +62,7 @@ post{
                     <h3>Status: SUCCESS ✅</h3>
                     <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
-                to: 'manish.walhekar02@gmail.com, manish.walhekar10@gmail.com, manish.walhekar@infosys.com',
+                to: 'manish.walhekar02@gmail.com, manish.walhekar10@gmail.com',
                 from: 'manish.walhekar02@gmail.com',
                 mimeType: 'text/html'
             )
