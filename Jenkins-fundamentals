@@ -9,19 +9,19 @@ pipeline{
             
             }
         }
-        stage ("Build"){
+        /*stage ("Build"){
              steps{
              sh "docker image prune -f"
              sh "docker build -t flaskapp ."
             }
-        }
+        }*/
        stage ("Test"){
              steps{
                 echo "Code Tested"
             }
             
         }
-        stage ("Push to Docker hub"){
+       /* stage ("Push to Docker hub"){
              steps{
                 withCredentials([usernamePassword(
                     credentialsId:"dockerHubCreds",
@@ -36,9 +36,8 @@ pipeline{
                 }
             }
             
-        }
-        
-        stage ("Deploy"){
+        }*/        
+        /*stage ("Deploy"){
              steps{
                 sh "docker compose up -d"
                
@@ -50,7 +49,7 @@ pipeline{
                
             } 
             
-        }
+        }*/
     }
 
 post{
