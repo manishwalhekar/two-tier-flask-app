@@ -63,6 +63,7 @@ post{
                     <h3>Status: SUCCESS ✅</h3>
                     <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
+                recipientProviders: [developers(), requestor()],
                 to: 'manish.walhekar02@gmail.com',
                 from: 'manish.walhekar02@gmail.com',
                 mimeType: 'text/html'
