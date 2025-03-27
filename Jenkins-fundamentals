@@ -9,19 +9,19 @@ pipeline{
             
             }
         }
-        /*stage ("Build"){
+        stage ("Build"){
              steps{
              sh "docker image prune -f"
              sh "docker build -t flaskapp ."
             }
-        }*/
+        }
        stage ("Test"){
              steps{
                 echo "Code Tested"
             }
             
         }
-       /* stage ("Push to Docker hub"){
+        stage ("Push to Docker hub"){
              steps{
                 withCredentials([usernamePassword(
                     credentialsId:"dockerHubCreds",
@@ -36,8 +36,8 @@ pipeline{
                 }
             }
             
-        }*/        
-        /*stage ("Deploy"){
+        }       
+        stage ("Deploy"){
              steps{
                 sh "docker compose up -d"
                
@@ -49,7 +49,7 @@ pipeline{
                
             } 
             
-        }*/
+        }
     }
 
 post{
@@ -76,7 +76,7 @@ post{
                     <h3>Status: FAILED ❌</h3>
                     <h3>Check console output: <a href="${BUILD_URL}">${BUILD_URL}</a></h3>
                 """,
-                to: 'manish.walhekar02@gmail.com',
+                to: 'manish.walhekar02@gmail.com, manish.walhekar10@gmail.com',
                 from: 'manish.walhekar02@gmail.com',
                 mimeType: 'text/html'
             )
