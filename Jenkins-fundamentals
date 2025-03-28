@@ -1,4 +1,4 @@
-pipeline{
+/*pipeline{
     
     agent {label "dev"};
     
@@ -91,4 +91,29 @@ post{
     }
 }    
     
+}*/
+
+pipeline {
+    agent none  // No global agent, each stage runs on specific workers
+
+    stages {
+        stage("Deploy MySQL on Worker 1") {
+            agent { label 'worker-1' }  // Run on Worker 1
+            steps {
+                sh '''
+                docker-compose -f docker-compose-mysql.yml up -d
+                '''
+            }
+        }
+
+        stage("Deploy FlaskApp on Worker 2") {
+            agent { label 'worker-2' }  // Run on Worker 2
+            steps {
+                sh '''
+                docker-compose -f docker-compose-flask.yml up -d
+                '''
+            }
+        }
+    }
 }
+
