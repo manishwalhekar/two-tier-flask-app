@@ -1,5 +1,5 @@
 pipeline {
-    agent none  // No global agent, each stage runs on specific workers
+    agent none  // No global agent, each stage runs on specific workers.
 
     stages {
         stage("Deploy MySQL on Worker 1") {
