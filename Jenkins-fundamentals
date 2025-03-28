@@ -98,7 +98,7 @@ pipeline {
 
     stages {
         stage("Deploy MySQL on Worker 1") {
-            agent { label 'worker-1' }  // Run on Worker 1
+            agent { label 'agent1' }  // Run on Worker 1
             steps {
                 sh '''
                 docker-compose -f docker-compose-mysql.yml up -d
@@ -107,7 +107,7 @@ pipeline {
         }
 
         stage("Deploy FlaskApp on Worker 2") {
-            agent { label 'worker-2' }  // Run on Worker 2
+            agent { label 'agent2' }  // Run on Worker 2
             steps {
                 sh '''
                 docker-compose -f docker-compose-flask.yml up -d
