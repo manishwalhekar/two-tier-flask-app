@@ -17,7 +17,6 @@ pipeline{
                 sh "trivy fs . -o reports.json"
             }
         }
-        }
         stage ("Build"){
              steps{
              sh "docker image prune -f"
