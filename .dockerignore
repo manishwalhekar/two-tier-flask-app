@@ -1,5 +1,6 @@
 devops/mysql-data/
 devops/mysql-data/**
+mysql-data/
 .git
 .gitignore
 node_modules
